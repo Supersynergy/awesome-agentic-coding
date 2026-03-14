@@ -32,8 +32,10 @@ cd awesome-agentic-coding
 bash setup.sh
 ```
 
-**What it installs:** 5 hooks, 4 skills, 3 agents, 3 rules, optimized settings.json, CLAUDE.md template.
+**What it installs:** 5 hooks, 7 skills, 3 agents, 3 rules, optimized settings.json, CLAUDE.md template.
 **What it preserves:** Your existing config (backup + merge, never overwrite).
+
+> **No clone needed?** Copy `ONESHOT_SETUP_PROMPT.md` into any Claude Code session — it self-configures.
 
 ---
 
@@ -84,6 +86,10 @@ bash setup.sh
 | 8 | **Batch API** | 50% discount on all tokens for async processing | [Anthropic](https://platform.claude.com/docs/en/build-with-claude/batch-processing) |
 | 9 | **Self-healing CI** | Standardized pattern: failures trigger repair agents | [Medium](https://medium.com/@jagannathsarkar/i-built-a-self-healing-ai-coding-agent) |
 | 10 | **Inference cost 1000x drop** | $20/MTok (2022) to $0.40/MTok (2026) | [Introl](https://introl.com/blog/inference-unit-economics-true-cost-per-million-tokens-guide) |
+| 11 | **`/btw` command** | Side questions at ~0 marginal cost (reuses parent cache) | [Claude Code Docs](https://code.claude.com/docs/en/changelog) |
+| 12 | **`opusplan` alias** | Opus planning + Sonnet execution = 40% cheaper | [Claude Code Docs](https://code.claude.com/docs/en/changelog) |
+| 13 | **PreToolUse input modification** | Hooks can now modify tool inputs, not just block | [Claude Code Hooks Guide](https://code.claude.com/docs/en/hooks-guide) |
+| 14 | **Memory timestamps** | Stale memories (>7 days) now flagged by `/context` | [Claude Code Changelog](https://code.claude.com/docs/en/changelog) |
 
 ---
 
