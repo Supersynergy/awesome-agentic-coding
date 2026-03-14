@@ -1,118 +1,112 @@
 # The 1-Shot Claude Code Setup Prompt
 
-> Copy-paste this entire block into a fresh Claude Code session to configure everything automatically.
+> **Just paste ONE of these into a fresh Claude Code session. That's it.**
 
 ---
 
+## Option 1: Full Setup (Recommended)
+
+Copy this single line into Claude Code:
+
 ```
-I need you to set up my Claude Code environment for maximum efficiency. Do everything in this exact order:
-
-## Step 1: Install the Awesome Agentic Coding repo
-
-Clone and run the setup script:
-```bash
-git clone https://github.com/Supersynergy/awesome-agentic-coding.git ~/awesome-agentic-coding
-cd ~/awesome-agentic-coding && bash setup.sh
+Clone https://github.com/Supersynergy/awesome-agentic-coding and run bash setup.sh — then verify all hooks, skills, and agents are installed. Create a CLAUDE.md for this project if none exists. Show me what was installed.
 ```
-
-## Step 2: Verify the installation
-
-Check that these exist:
-- ~/.claude/hooks/quality-gate.sh (Stop hook — runs tests before finishing)
-- ~/.claude/hooks/secret-guard.sh (PreToolUse — blocks secret file writes)
-- ~/.claude/hooks/context-inject.sh (SessionStart — injects git context)
-- ~/.claude/hooks/protect-prod.sh (PreToolUse — blocks production config edits)
-- ~/.claude/hooks/syntax-check.sh (PostToolUse — validates syntax after edits)
-- ~/.claude/skills/oneshot/SKILL.md
-- ~/.claude/skills/review/SKILL.md
-- ~/.claude/skills/debug/SKILL.md
-- ~/.claude/skills/refactor/SKILL.md
-- ~/.claude/agents/researcher/AGENT.md (Haiku, read-only)
-- ~/.claude/agents/reviewer/AGENT.md (Haiku, read-only + Bash)
-- ~/.claude/agents/architect/AGENT.md (Sonnet, read-only)
-
-## Step 3: Verify settings.json has these hook configurations
-
-Ensure ~/.claude/settings.json contains:
-- SessionStart hook → context-inject.sh
-- PreToolUse (Write|Edit) → secret-guard.sh + protect-prod.sh
-- PostToolUse (Edit|Write) → syntax-check.sh
-- Permission allowlist for: Read, Glob, Grep, safe git commands, npm/python test commands
-
-## Step 4: Create/update my project CLAUDE.md
-
-If this project doesn't have a .claude/CLAUDE.md, create one using the template at ~/awesome-agentic-coding/examples/CLAUDE.md.template. Keep it under 200 lines.
-
-## Step 5: Confirm
-
-List everything that was installed and any issues found. Then show me the available skills with /oneshot, /review, /debug, /refactor.
 
 ---
 
-RULES FOR SETUP:
-- NEVER overwrite existing files — merge or back up first
+## Option 2: Full Setup + Project Optimization
+
+For a specific project directory, paste this:
+
+```
+Clone https://github.com/Supersynergy/awesome-agentic-coding to ~/awesome-agentic-coding and run bash setup.sh to install hooks, skills, agents, and rules. Then:
+1. Detect this project's stack (read package.json / pyproject.toml / go.mod / Cargo.toml)
+2. Create .claude/CLAUDE.md optimized for this project (build commands, architecture, patterns — under 150 lines)
+3. Create .claude/rules/ with path-specific rules for this project's structure
+4. Run tests to verify everything works
+5. Show summary of what was installed + what skills are available
+```
+
+---
+
+## Option 3: Zero-Clone (No Git Needed)
+
+If you can't or don't want to clone, paste this self-contained setup:
+
+```
+Configure my Claude Code for maximum efficiency. Do all of this:
+
+HOOKS — Add to ~/.claude/settings.json:
+- SessionStart: bash script that outputs "git log --oneline -3 && git status -s" for context
+- PreToolUse (Write|Edit): block files matching *.env *.pem *.key credentials* secrets*
+- PostToolUse (Edit|Write): syntax check Python (ast.parse) and JSON (json.load)
+- Permissions allow: Read, Glob, Grep, Bash(git status*), Bash(git diff*), Bash(git log*), Bash(git branch*), Bash(git show*), Bash(npm run *), Bash(npm test*), Bash(python3 -m pytest*), Bash(ls*), Bash(pwd), Bash(which*), Bash(wc*), Bash(curl -s *)
+
+AGENTS — Create in ~/.claude/agents/:
+- researcher/AGENT.md: model haiku, tools Read+Grep+Glob only, purpose "fast codebase exploration, read-only"
+- reviewer/AGENT.md: model haiku, tools Read+Grep+Glob+Bash, purpose "code review, find bugs/security/performance issues"
+- architect/AGENT.md: model sonnet, tools Read+Grep+Glob, purpose "architecture analysis, recommend simplest approach"
+
+SKILLS — Create in ~/.claude/skills/:
+- oneshot/SKILL.md: 4-phase protocol (gather context → plan → implement → verify), allowed-tools all
+- review/SKILL.md: spawns 3 parallel haiku reviewers (correctness, security, performance)
+- debug/SKILL.md: scientific method (observe → hypothesize → test → fix → verify)
+- refactor/SKILL.md: safe refactoring with test verification at each step
+
+RULES — Create these for the current project if none exist:
+- .claude/rules/security.md (paths: **/*): no hardcoded secrets, validate input, parameterized queries
+- .claude/rules/tests.md (paths: **/*test*, tests/**): test behavior not implementation, no shared mutable state
+
+SETTINGS:
+- effortLevel: "medium"
+- showTurnDuration: true
+
+PROJECT CLAUDE.md — If this project has no .claude/CLAUDE.md:
+- Detect stack from config files
+- Create one under 150 lines with: build commands, test commands, architecture map, key patterns
+- Tables over prose, most important first
+
+RULES:
+- NEVER overwrite existing files — merge or backup first
 - NEVER touch API keys, secrets, or git config
-- If any hook already exists, compare and keep the better version
 - Make all .sh files executable
-- Test that hooks work by checking exit codes
+- Show me everything that was installed when done
 ```
 
 ---
 
-## Why This Works
+## Option 4: URL-Only (Absolute Minimum)
 
-This prompt succeeds because it follows all 6 context engineering principles:
-
-1. **Structured** — Numbered steps with clear verification
-2. **Specific** — Exact file paths, no ambiguity
-3. **Verifiable** — Each step has a check
-4. **Append-only** — Merges, never overwrites
-5. **Minimal** — Only installs what's needed
-6. **Progressive** — Each step builds on the previous
-
-## Alternative: Quick Setup (No Clone)
-
-If you don't want to clone the repo, paste this minimal version:
+Just paste the URL and this instruction:
 
 ```
-Configure my Claude Code for optimal performance:
-
-1. Add these hooks to ~/.claude/settings.json:
-   - SessionStart: inject "git log --oneline -3 && git status -s" output
-   - PreToolUse (Write|Edit): block files matching *.env, *.pem, *.key, credentials*
-   - PostToolUse (Edit|Write): run syntax check (python3 -c "compile(open(f).read(), f, 'exec')" for .py, node --check for .js/.ts)
-
-2. Set permission allowlist: Read, Glob, Grep, Bash(git status*), Bash(git diff*), Bash(git log*), Bash(npm test*), Bash(python3 -m pytest*)
-
-3. Create ~/.claude/agents/researcher/AGENT.md:
-   - model: haiku, tools: Read/Glob/Grep only, purpose: fast codebase exploration
-
-4. If this project has no .claude/CLAUDE.md, create a minimal one with:
-   - Build/test commands
-   - Code style (2 spaces, no semicolons, etc.)
-   - Architecture overview (directories + purpose)
-   Keep under 150 lines.
-
-Confirm what was set up.
+https://github.com/Supersynergy/awesome-agentic-coding — clone this, run setup.sh, confirm what's installed.
 ```
 
-## Alternative: Project-Specific Setup
+---
 
-For a specific project, add context:
+## Why These Work
 
-```
-Set up Claude Code for THIS project:
+Every prompt follows the [6 context engineering principles](docs/CONTEXT_ENGINEERING.md):
 
-1. Read package.json (or pyproject.toml, Cargo.toml, go.mod) to detect stack
-2. Read the existing CLAUDE.md (if any) and suggest improvements
-3. Create path-specific rules in .claude/rules/:
-   - api.md for API routes (validation, error handling, auth checks)
-   - tests.md for test files (no mocks, integration-first)
-   - security.md for all files (no hardcoded secrets, input validation)
-4. Run the test suite and confirm it passes
-5. Generate a .claude/CLAUDE.md optimized for this specific project:
-   - Exact build/test commands (copy-pasteable)
-   - Architecture map from actual directory structure
-   - Key patterns from the codebase
-   Keep under 150 lines. Tables over prose.
-```
+| Principle | How It's Applied |
+|-----------|-----------------|
+| Structured | Numbered steps with clear sections |
+| Specific | Exact file paths, tool names, model names |
+| Verifiable | "Show me what was installed" forces confirmation |
+| Append-only | "NEVER overwrite" — merge or backup |
+| Minimal | Only installs what's needed |
+| Cache-friendly | Stable instructions, no timestamps |
+
+## What Gets Installed
+
+| Component | Count | Token Impact |
+|-----------|-------|-------------|
+| Hooks | 5 | Saves 500-1000 tok/session (permissions) |
+| Skills | 7-10 | 0 tokens when unused |
+| Agents | 3 | Haiku subagents = 5x cheaper exploration |
+| Rules | 3 | Load only for matching file paths |
+| Permission allowlist | 30+ commands | Eliminates permission dialogs |
+| CLAUDE.md | 1 per project | < 150 lines = 95% adherence |
+
+**Total setup time: ~30 seconds. Total savings: ~84% per session.**

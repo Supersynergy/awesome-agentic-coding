@@ -26,16 +26,27 @@ This repo gives you everything in a single `bash setup.sh`.
 
 ## 1-Click Setup
 
+### Option A: Just paste this into Claude Code (easiest)
+```
+https://github.com/Supersynergy/awesome-agentic-coding — clone this, run setup.sh, confirm what's installed.
+```
+That's it. Claude clones the repo, runs the installer, and shows you what was set up.
+
+### Option B: Manual
 ```bash
-git clone https://github.com/Supersynergy/awesome-agentic-coding.git
-cd awesome-agentic-coding
-bash setup.sh
+git clone https://github.com/Supersynergy/awesome-agentic-coding.git ~/awesome-agentic-coding
+cd ~/awesome-agentic-coding && bash setup.sh
 ```
 
-**What it installs:** 5 hooks, 7 skills, 3 agents, 3 rules, optimized settings.json, CLAUDE.md template.
+### Option C: Full auto-setup + project optimization
+```
+Clone https://github.com/Supersynergy/awesome-agentic-coding and run bash setup.sh — then detect this project's stack, create an optimized CLAUDE.md, add path-specific rules, run tests, and show me what's available.
+```
+
+**What it installs:** 5 hooks, 10 skills, 3 agents, 3 rules, optimized settings.json, CLAUDE.md template.
 **What it preserves:** Your existing config (backup + merge, never overwrite).
 
-> **No clone needed?** Copy `ONESHOT_SETUP_PROMPT.md` into any Claude Code session — it self-configures.
+> See [`ONESHOT_SETUP_PROMPT.md`](ONESHOT_SETUP_PROMPT.md) for all 4 setup variants including a zero-clone option.
 
 ---
 
