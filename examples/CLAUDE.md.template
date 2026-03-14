@@ -1,0 +1,45 @@
+# Project: [YOUR PROJECT NAME]
+
+## Quick Start
+```bash
+# Install dependencies
+[npm install | pip install -r requirements.txt | go mod download]
+
+# Run dev server
+[npm run dev | python3 main.py | go run .]
+
+# Run tests
+[npm test | pytest | go test ./...]
+
+# Build
+[npm run build | python3 -m build | go build]
+```
+
+## Architecture
+```
+src/
+  api/        # API endpoints/routes
+  models/     # Data models/schemas
+  services/   # Business logic
+  utils/      # Shared utilities
+tests/        # Test files mirror src/ structure
+```
+
+## Code Style
+- [2-space | 4-space | tab] indentation
+- [Describe your naming conventions]
+- [Describe your import ordering]
+
+## Key Patterns
+- [Pattern 1: e.g., "All API responses use Result type: Ok(data) / Err(message)"]
+- [Pattern 2: e.g., "Database queries go through repository layer, never direct"]
+- [Pattern 3: e.g., "Use Zod schemas for all input validation"]
+
+## Important Gotchas
+- [Gotcha 1: e.g., "Settings model is plural: Settings, not Setting"]
+- [Gotcha 2: e.g., "Always rebuild frontend after CSS changes: npm run build"]
+
+## Git Workflow
+- Branch naming: `feature/`, `fix/`, `chore/`
+- Commit style: conventional commits (feat:, fix:, chore:)
+- Always run tests before committing
