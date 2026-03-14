@@ -114,6 +114,10 @@ bash setup.sh
 | `/plan <feature>` | Create implementation plan before coding (research → plan → review) |
 | `/test <target>` | Auto-detect framework, write tests following TDD principles |
 | `/commit` | Smart commit with auto-generated message from staged changes |
+| `/github <cmd>` | GitHub via `gh` CLI — **replaces GitHub MCP** (saves 55K tokens) |
+| `/docs <library>` | Fetch live docs via WebFetch — **replaces Context7 MCP** (saves 5-8K tokens) |
+| `/db <query>` | Database via CLI — **replaces Postgres/SurrealDB MCP** (saves 3-8K tokens) |
+| `/search-code <what>` | Deep codebase search with parallel agents |
 
 ### `/agents/` — Specialized Subagents
 | Agent | Model | Tools | Cost/Task |
@@ -140,6 +144,7 @@ bash setup.sh
 | `NATS_GUIDE.md` | NATS.io for AI agents: pub/sub, JetStream, KV, code examples |
 | `DATABASES.md` | SurrealDB, Turso, EdgeDB, Dragonfly comparisons |
 | `UI_AND_CRUD.md` | shadcn alternatives, Server Actions, tRPC, optimistic updates |
+| `ZERO_MCP.md` | **Zero-MCP workflow: 97% token savings** — replace every MCP with CLI + skills |
 | `WHY.md` | Evidence and sources behind every decision |
 
 ### `/best-practices/` — Quick-Reference Cheatsheets
