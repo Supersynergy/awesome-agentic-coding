@@ -1,0 +1,38 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@context7/mcp-server"],
+      "description": "Live library documentation. Use resolve-library-id then get-library-docs.",
+      "env": {}
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-filesystem", "/path/to/your/project"],
+      "description": "Read/write files outside the project directory."
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-github"],
+      "env": {
+        "GITHUB_TOKEN": "your-token-here"
+      },
+      "description": "GitHub API: issues, PRs, repos, code search."
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-postgres", "postgresql://user:pass@localhost:5432/db"],
+      "description": "Query PostgreSQL databases directly."
+    },
+    "surrealdb": {
+      "command": "npx",
+      "args": ["-y", "surrealdb-mcp-server"],
+      "env": {
+        "SURREAL_URL": "ws://localhost:8000/rpc",
+        "SURREAL_NS": "app",
+        "SURREAL_DB": "main"
+      },
+      "description": "Query SurrealDB: create, select, update, delete, graph traversals."
+    }
+  }
+}

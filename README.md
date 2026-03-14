@@ -105,6 +105,9 @@ bash setup.sh
 | `/review [target]` | Multi-agent code review (3 parallel Haiku reviewers) |
 | `/debug <bug>` | Scientific debugging with hypothesis testing |
 | `/refactor <target>` | Safe refactoring with test verification at each step |
+| `/plan <feature>` | Create implementation plan before coding (research → plan → review) |
+| `/test <target>` | Auto-detect framework, write tests following TDD principles |
+| `/commit` | Smart commit with auto-generated message from staged changes |
 
 ### `/agents/` — Specialized Subagents
 | Agent | Model | Tools | Cost/Task |
@@ -143,12 +146,18 @@ bash setup.sh
 ### `ONESHOT_SETUP_PROMPT.md` — The Ultimate Setup Prompt
 Copy-paste into Claude Code. 3 variants: full (clone + install), quick (no clone), project-specific.
 
+### `validate.sh` — Installation Validator
+Run `bash validate.sh` to check all hooks, skills, agents, settings are properly installed.
+
 ### `/examples/`
 | File | Purpose |
 |------|---------|
 | `CLAUDE.md.template` | Optimized starter (copy, customize, ship) |
 | `settings.json.optimal` | Full settings with 30+ pre-approved commands |
 | `oneshot-prompts.md` | 10 proven one-shot prompt templates + meta-prompt |
+| `mcp-config.json` | MCP server configs: Context7, GitHub, Postgres, SurrealDB |
+| `agent-team.md` | Agent Teams examples: full-stack, debugging, multi-service |
+| `nats-surrealdb-starter.md` | Event-sourced CRUD with NATS + SurrealDB + Hono in 50 lines |
 
 ---
 

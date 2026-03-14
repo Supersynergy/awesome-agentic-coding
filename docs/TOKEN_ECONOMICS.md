@@ -118,12 +118,14 @@ Duration: 15 minutes (fewer permission interruptions)
 
 ```
 Context usage < 50%  -> Keep working
-Context usage 50-70% -> Consider /compact if switching subtasks
-Context usage 70-85% -> /compact with focus instructions
-Context usage > 85%  -> /clear and start fresh (quality degrades rapidly)
+Context usage 50-65% -> Consider /compact if switching subtasks
+Context usage > 65%  -> /compact with focus instructions NOW
+Context usage > 80%  -> /clear and start fresh (quality already collapsed)
 ```
 
-**Auto-compact triggers at ~95%** — but quality already degraded by then. Compact proactively at 70%.
+**BREAKTHROUGH (March 2026):** Research from Chroma shows quality degrades **suddenly at 65%**, not gradually at 95%. The old advice of "compact at 80%" is outdated. Compact proactively at 65%.
+
+**Source:** [Chroma: Context Rot Research](https://research.trychroma.com/context-rot)
 
 ---
 
@@ -139,9 +141,87 @@ Long-running workflows fail ~30% of the time. Checkpointing = restart from last 
 
 ---
 
+---
+
+## NEW: The 1:166 Ratio (March 2026 Breakthrough)
+
+For every **1 token of output**, approximately **166 tokens of input context** are read. This fundamentally changes optimization priorities:
+
+```
+Impact ranking:
+1. Reduce context waste     → 10% context reduction = MORE savings than
+2. Eliminate all output      → removing every generated token
+3. Switch models             → Haiku vs Sonnet is 3-5x, but context is 166x
+```
+
+**Practical implication:** .claudeignore, CLAUDE.md pruning, and tool search have MORE impact than model routing.
+
+---
+
+## NEW: Prompt Caching Economics (GA Feb 2026)
+
+| Scenario | Uncached | Cached | Savings |
+|----------|----------|--------|---------|
+| System prompt (5K tokens) | $0.015/call | $0.0015/call | 90% |
+| Codebase context (50K) | $0.15/call | $0.015/call | 90% |
+| Multi-turn (10 turns) | $1.50 | $0.15 | 90% |
+| Agent loop (20 steps) | $3.00 | $0.30 | 90% |
+
+**Cache TTL:** 5 min (default, free), 1 hour (2x write cost on Bedrock).
+**Requirement:** Stable prompt prefixes. No timestamps in system prompts!
+
+---
+
+## NEW: Batch API (50% Off Everything)
+
+For async/bulk operations:
+```bash
+# Refactor 100 files at once
+/batch "Add TypeScript types to all .js files in src/"
+
+# Generate tests for entire codebase
+/batch "Write unit tests for all files without coverage"
+```
+
+**Pricing:** 50% off both input and output tokens.
+**Latency:** Up to 24 hours (usually much faster).
+**Limit:** 100K requests or 256MB per batch.
+
+---
+
+## NEW: Claude Code Router (Open Source)
+
+Multi-model routing that reduces costs by up to 10x:
+- Simple queries → Haiku or even free models (Gemma)
+- Code generation → Sonnet
+- Architecture → Opus
+- Automatic routing based on task complexity
+
+**Source:** [Claude Code Router](https://www.datacamp.com/tutorial/claude-code-router)
+
+---
+
+## Developer Cost Benchmarks (March 2026)
+
+| Usage Level | Monthly Cost | Daily Average |
+|-------------|-------------|---------------|
+| Light | $0-20 | $0-1 |
+| Standard | $20-50 | $1-2 |
+| Power user | $100-200 | $4-8 |
+| Team (per dev) | $40-250 | $2-10 |
+
+**90% of users stay below $12/day.** The optimizations in this repo target the $6/day average → $2/day.
+
+---
+
 ## Sources
 
 - [Claude Code Docs: Costs](https://code.claude.com/docs/en/costs.md)
 - [Anthropic Pricing](https://www.anthropic.com/pricing)
 - [Manus: KV-Cache Optimization](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus)
 - [Redis: LLM Token Optimization 2026](https://redis.io/blog/llm-token-optimization-speed-up-apps/)
+- [Dev.to: Cut Token Costs by 70%](https://dev.to/myougatheaxo/cut-claude-code-token-costs-by-70-practical-optimization-guide-78c)
+- [Anthropic: Prompt Caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+- [Anthropic: Batch Processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+- [The Real Cost of AI Coding Agents 2026](https://www.gauraw.com/real-cost-ai-coding-agents-2026/)
+- [Chroma: Context Rot Research](https://research.trychroma.com/context-rot)
