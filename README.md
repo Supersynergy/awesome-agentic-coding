@@ -1,3 +1,32 @@
+<!-- REPO-POLISH:START -->
+<p align="center">
+  <img src="docs/assets/social-preview.png" alt="Repo social preview" width="100%">
+</p>
+
+> Awesome Agentic Coding is a curated developer index for finding high-leverage AI tools fast.
+
+## Quick Start
+
+```bash
+git clone https://github.com/Supersynergy/awesome-agentic-coding.git
+cd awesome-agentic-coding
+bash setup.sh
+```
+
+Expected result: the project runs locally or reports the next missing prerequisite directly in the terminal.
+
+## Developer Map
+
+| Need | Command |
+|---|---|
+| setup | `bash setup.sh` |
+| check | `bash validate.sh` |
+
+Full verification path: `bash setup.sh && bash validate.sh`
+
+Agent instructions live in [AGENTS.md](AGENTS.md).
+<!-- REPO-POLISH:END -->
+
 # Awesome Agentic Coding — Best Practices & 1-Click Setup
 
 > **Turn Claude Code into a failsafe, token-efficient, one-shot coding machine.**
