@@ -1,4 +1,4 @@
-# Awesome Agentic Coding — Best Practices & 1-Click Setup
+# Awesome Agentic Coding: Best Practices & 1-Click Setup
 
 > **Turn Claude Code into a failsafe, token-efficient, one-shot coding machine.**
 > Production-tested patterns from Anthropic, Manus, Devin, and 100+ real-world projects.
@@ -14,11 +14,11 @@
 
 Most developers use Claude Code at **20% of its potential**. The top 1% know:
 
-- **Scaffold > Model** — SWE-bench proves: changing the scaffold changes scores 22%. Changing the model changes them 1.3%. ([Source](https://www.morphllm.com/best-ai-model-for-coding))
-- **Context > Prompts** — For every 1 output token, 166 input tokens are read. 10% context reduction saves more than eliminating all output. ([Source](https://dev.to/myougatheaxo/cut-claude-code-token-costs-by-70-practical-optimization-guide-78c))
-- **Hooks > Instructions** — CLAUDE.md rules can be "forgotten." Shell hooks execute deterministically, always.
-- **TDD + Agents = Gold** — Anthropic officially endorsed Red/Green TDD as the agentic coding pattern. ([Source](https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/))
-- **65% is the real limit** — Context quality degrades suddenly (not gradually) past 65% capacity. Plan for 650K in a 1M window. ([Source](https://research.trychroma.com/context-rot))
+- Scaffold > Model, SWE-bench proves: changing the scaffold changes scores 22%. Changing the model changes them 1.3%. ([Source](https://www.morphllm.com/best-ai-model-for-coding))
+- Context > Prompts, For every 1 output token, 166 input tokens are read. 10% context reduction saves more than eliminating all output. ([Source](https://dev.to/myougatheaxo/cut-claude-code-token-costs-by-70-practical-optimization-guide-78c))
+- Hooks > Instructions, CLAUDE.md rules can be "forgotten." Shell hooks execute deterministically, always.
+- TDD + Agents = Gold, Anthropic officially endorsed Red/Green TDD as the agentic coding pattern. ([Source](https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/))
+- 65% is the real limit, Context quality degrades suddenly (not gradually) past 65% capacity. Plan for 650K in a 1M window. ([Source](https://research.trychroma.com/context-rot))
 
 This repo gives you everything in a single `bash setup.sh`.
 
@@ -106,7 +106,7 @@ Clone https://github.com/Supersynergy/awesome-agentic-coding and run bash setup.
 
 ## What's Inside
 
-### `/hooks/` — Deterministic Quality Gates
+### `/hooks/`: Deterministic Quality Gates
 | Hook | Event | What It Does |
 |------|-------|-------------|
 | `quality-gate.sh` | Stop | Auto-detects project type, runs tests before Claude "finishes" |
@@ -115,7 +115,7 @@ Clone https://github.com/Supersynergy/awesome-agentic-coding and run bash setup.
 | `protect-prod.sh` | PreToolUse | Blocks edits to production configs |
 | `syntax-check.sh` | PostToolUse | Validates Python/JSON/YAML syntax after every edit |
 
-### `/skills/` — On-Demand Workflows (0 tokens when unused)
+### `/skills/`: On-Demand Workflows (0 tokens when unused)
 | Skill | Description |
 |-------|-------------|
 | `/oneshot <task>` | Context-primed 1-shot coding (4-phase protocol) |
@@ -125,26 +125,26 @@ Clone https://github.com/Supersynergy/awesome-agentic-coding and run bash setup.
 | `/plan <feature>` | Create implementation plan before coding (research → plan → review) |
 | `/test <target>` | Auto-detect framework, write tests following TDD principles |
 | `/commit` | Smart commit with auto-generated message from staged changes |
-| `/github <cmd>` | GitHub via `gh` CLI — **replaces GitHub MCP** (saves 55K tokens) |
-| `/docs <library>` | Fetch live docs via WebFetch — **replaces Context7 MCP** (saves 5-8K tokens) |
-| `/db <query>` | Database via CLI — **replaces Postgres/SurrealDB MCP** (saves 3-8K tokens) |
+| `/github <cmd>` | GitHub via `gh` CLI, **replaces GitHub MCP** (saves 55K tokens) |
+| `/docs <library>` | Fetch live docs via WebFetch, **replaces Context7 MCP** (saves 5-8K tokens) |
+| `/db <query>` | Database via CLI, **replaces Postgres/SurrealDB MCP** (saves 3-8K tokens) |
 | `/search-code <what>` | Deep codebase search with parallel agents |
 
-### `/agents/` — Specialized Subagents
+### `/agents/`: Specialized Subagents
 | Agent | Model | Tools | Cost/Task |
 |-------|-------|-------|-----------|
 | `researcher` | Haiku | Read, Grep, Glob | $0.02 |
 | `reviewer` | Haiku | Read, Grep, Glob, Bash | $0.03 |
 | `architect` | Sonnet | Read, Grep, Glob | $0.10 |
 
-### `/rules/` — Path-Specific (load only when relevant)
+### `/rules/`: Path-Specific (load only when relevant)
 | Rule | Paths | Focus |
 |------|-------|-------|
 | `security.md` | `**/*` | OWASP Top 10, input validation, no hardcoded secrets |
 | `api.md` | `src/api/**`, `routes/**` | Validation, error format, pagination, rate limiting |
 | `tests.md` | `**/*test*`, `**/*spec*` | Behavior testing, independence, happy + error paths |
 
-### `/docs/` — Deep Dives (9 Guides)
+### `/docs/`: Deep Dives (9 Guides)
 | Guide | What You'll Learn |
 |-------|------------------|
 | `CONTEXT_ENGINEERING.md` | The 6 principles + annotation cycle (90% quality improvement) |
@@ -155,20 +155,20 @@ Clone https://github.com/Supersynergy/awesome-agentic-coding and run bash setup.
 | `NATS_GUIDE.md` | NATS.io for AI agents: pub/sub, JetStream, KV, code examples |
 | `DATABASES.md` | SurrealDB, Turso, EdgeDB, Dragonfly comparisons |
 | `UI_AND_CRUD.md` | shadcn alternatives, Server Actions, tRPC, optimistic updates |
-| `ZERO_MCP.md` | **Zero-MCP workflow: 97% token savings** — replace every MCP with CLI + skills |
+| `ZERO_MCP.md` | **Zero-MCP workflow: 97% token savings**, replace every MCP with CLI + skills |
 | `WHY.md` | Evidence and sources behind every decision |
 
-### `/best-practices/` — Quick-Reference Cheatsheets
+### `/best-practices/`: Quick-Reference Cheatsheets
 | Guide | What's Inside |
 |-------|--------------|
 | `CRUD_CHEATSHEET.md` | Every CRUD pattern: Server Actions, tRPC, SurrealDB, Hono REST, NATS events |
 | `AGENT_PATTERNS.md` | 5 agent architectures, model routing, Claude Code agent best practices |
 | `MODERN_STACK.md` | 6 stack recipes: SaaS, AI agents, real-time, e-commerce, API-first, admin |
 
-### `ONESHOT_SETUP_PROMPT.md` — The Ultimate Setup Prompt
+### `ONESHOT_SETUP_PROMPT.md`: The Ultimate Setup Prompt
 Copy-paste into Claude Code. 3 variants: full (clone + install), quick (no clone), project-specific.
 
-### `validate.sh` — Installation Validator
+### `validate.sh`: Installation Validator
 Run `bash validate.sh` to check all hooks, skills, agents, settings are properly installed.
 
 ### `/examples/`
@@ -185,7 +185,7 @@ Run `bash validate.sh` to check all hooks, skills, agents, settings are properly
 
 ## The One-Shot Formula
 
-> "Getting to 80% is fast. Getting to 95%+ takes discipline." — Addy Osmani
+> "Getting to 80% is fast. Getting to 95%+ takes discipline.", Addy Osmani
 
 ### Why One-Shot Works (When It Works)
 The secret isn't the prompt. It's the **context scaffold**:
@@ -227,14 +227,14 @@ Claude: Done in 1-2 turns. Every decision pre-made.
 
 ### The 8 Principles
 
-1. **Scaffold > Model** — Invest in your agent architecture, not model shopping
-2. **Cache-friendly prompts** — Stable prefixes, no timestamps in system prompts
-3. **Append-only context** — Never mutate; let model learn from failures in-context
-4. **Preserve errors** — Wrong turns teach self-correction better than instructions
-5. **External memory** — Large docs on filesystem, referenced by path (not embedded)
-6. **Progressive disclosure** — Teach Claude *how to find* info, not dump everything
-7. **Pointers over copies** — `file:line` references, not pasted code that goes stale
-8. **Compact at 65%** — Don't wait for 95% auto-compact. Quality is already degraded.
+1. **Scaffold > Model**, Invest in your agent architecture, not model shopping
+2. **Cache-friendly prompts**, Stable prefixes, no timestamps in system prompts
+3. **Append-only context**, Never mutate; let model learn from failures in-context
+4. **Preserve errors**, Wrong turns teach self-correction better than instructions
+5. **External memory**, Large docs on filesystem, referenced by path (not embedded)
+6. **Progressive disclosure**, Teach Claude *how to find* info, not dump everything
+7. **Pointers over copies**, `file:line` references, not pasted code that goes stale
+8. **Compact at 65%**, Don't wait for 95% auto-compact. Quality is already degraded.
 
 ---
 
@@ -259,7 +259,7 @@ Claude: Done in 1-2 turns. Every decision pre-made.
 | Skills (on-demand) | **0 tokens when unused** | Load only on `/invoke` |
 | Prompt caching | **90% on repeats** | Automatic since Feb 2026 |
 | Tool Search | **46.9% MCP reduction** | Deferred tool loading |
-| `/compact` at 65% | **Prevents quality collapse** | Not 80%, not 95% — 65% |
+| `/compact` at 65% | **Prevents quality collapse** | Not 80%, not 95%, 65% |
 | Batch API | **50% off** | Async processing for bulk ops |
 
 **Optimized: ~$0.40/session. Unoptimized: ~$2.50/session. Savings: 84%.**
@@ -320,7 +320,7 @@ Anthropic's official recommendation ([Agentic Coding Trends Report 2026](https:/
 4. Repeat
 ```
 
-**Why:** Without TDD, agents can "cheat" — writing tests that confirm broken behavior. TDD defines correctness *before* implementation. The test is the spec.
+**Why:** Without TDD, agents can "cheat", writing tests that confirm broken behavior. TDD defines correctness *before* implementation. The test is the spec.
 
 ---
 
@@ -348,13 +348,13 @@ Anthropic's official recommendation ([Agentic Coding Trends Report 2026](https:/
 
 ## Related Awesome Lists
 
-- [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) — Skills, hooks, agents, applications
-- [awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) — 100+ subagents
-- [awesome-claude-md](https://github.com/josix/awesome-claude-md) — Exemplary CLAUDE.md files
-- [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) — 500+ Cursor rules
-- [claude-code-ultimate-guide](https://github.com/FlorianBruniaux/claude-code-ultimate-guide) — Comprehensive guide
-- [agentic-coding-handbook](https://tweag.github.io/agentic-coding-handbook/) — Tweag's handbook
-- [agent-flywheel](https://agent-flywheel.com) — The agentic coding flywheel concept
+- [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code), Skills, hooks, agents, applications
+- [awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents), 100+ subagents
+- [awesome-claude-md](https://github.com/josix/awesome-claude-md), Exemplary CLAUDE.md files
+- [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules), 500+ Cursor rules
+- [claude-code-ultimate-guide](https://github.com/FlorianBruniaux/claude-code-ultimate-guide), Comprehensive guide
+- [agentic-coding-handbook](https://tweag.github.io/agentic-coding-handbook/), Tweag's handbook
+- [agent-flywheel](https://agent-flywheel.com), The agentic coding flywheel concept
 
 ---
 
@@ -364,7 +364,7 @@ PRs welcome! Include evidence (benchmark, source, or production experience) with
 
 ## License
 
-MIT — Use it, fork it, make it yours.
+MIT, Use it, fork it, make it yours.
 
 ---
 
