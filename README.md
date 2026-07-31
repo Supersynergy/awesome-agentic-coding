@@ -241,6 +241,9 @@ Claude: Done in 1-2 turns. Every decision pre-made.
 ## Token Economics (March 2026)
 
 ### Per-Task Costs
+
+Rough estimates from our own runs, not vendor figures. Your token counts decide the real number.
+
 | Task | Model | Cost |
 |------|-------|------|
 | Simple edit | Sonnet | $0.05 |
@@ -253,10 +256,10 @@ Claude: Done in 1-2 turns. Every decision pre-made.
 ### 8 Optimization Levers
 | Lever | Savings | How |
 |-------|---------|-----|
-| Model routing | **5x** on exploration | Haiku for read-only, Sonnet for code |
+| Model routing | **3x** on exploration | Haiku ($1/$5 per MTok) for read-only, Sonnet ($3/$15) for code |
 | Permission allowlists | **500-1000 tok/session** | Pre-approve safe commands |
 | CLAUDE.md < 200 lines | **~1000 tok/session** | Details → skills + topic files |
-| Skills (on-demand) | **0 tokens when unused** | Load only on `/invoke` |
+| Skills (on-demand) | **body loads only when used** | The description stays in context; the body is read on invocation |
 | Prompt caching | **90% on repeats** | Automatic since Feb 2026 |
 | Tool Search | **46.9% MCP reduction** | Deferred tool loading |
 | `/compact` at 65% | **Prevents quality collapse** | Not 80%, not 95%, 65% |
