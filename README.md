@@ -12,7 +12,7 @@
 
 ## Why This Exists
 
-Most developers use Claude Code at **20% of its potential**. The top 1% know:
+What most setups leave on the table:
 
 - Scaffold > Model, SWE-bench proves: changing the scaffold changes scores 22%. Changing the model changes them 1.3%. ([Source](https://www.morphllm.com/best-ai-model-for-coding))
 - Context > Prompts, For every 1 output token, 166 input tokens are read. 10% context reduction saves more than eliminating all output. ([Source](https://dev.to/myougatheaxo/cut-claude-code-token-costs-by-70-practical-optimization-guide-78c))
