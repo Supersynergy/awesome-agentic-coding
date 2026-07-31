@@ -2,7 +2,7 @@
 
 > **Turn Claude Code into a failsafe, token-efficient, one-shot coding machine.**
 > Production-tested patterns from Anthropic, Manus, Devin, and 100+ real-world projects.
-> Updated March 2026 with latest breakthroughs from 10-agent parallel research.
+> Curated March 2026. Links and repository status re-checked on 31 July 2026.
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-2.1+-blueviolet)](https://claude.ai/code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
