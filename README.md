@@ -1,6 +1,6 @@
 # Awesome Agentic Coding: Best Practices & 1-Click Setup
 
-![Awesome Agentic Coding](assets/cover.png)
+<img src="assets/cover.png" alt="Awesome Agentic Coding" width="300" align="right">
 
 **🧭 Explore:** [Setup](#1-click-setup) · [Architecture](#the-architecture) · [What’s inside](#whats-inside) · [Quick reference](#quick-reference) · [Sources](#sources--evidence)
 
@@ -10,7 +10,7 @@
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-2.1+-blueviolet)](https://claude.ai/code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
 
 ---
 
@@ -50,7 +50,7 @@ Clone https://github.com/Supersynergy/awesome-agentic-coding and run bash setup.
 **What it installs:** 5 hooks, 10 skills, 3 agents, 3 rules, optimized settings.json, CLAUDE.md template.
 **What it preserves:** Your existing config (backup + merge, never overwrite).
 
-> See [`ONESHOT_SETUP_PROMPT.md`](ONESHOT_SETUP_PROMPT.md) for all 4 setup variants including a zero-clone option.
+> See [`ONESHOT_SETUP_PROMPT.md`](docs/ONESHOT_SETUP_PROMPT.md) for all 4 setup variants including a zero-clone option.
 
 ---
 

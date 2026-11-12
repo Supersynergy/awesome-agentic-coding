@@ -87,7 +87,7 @@ https://github.com/Supersynergy/awesome-agentic-coding — clone this, run setup
 
 ## Why These Work
 
-Every prompt follows the [6 context engineering principles](docs/CONTEXT_ENGINEERING.md):
+Every prompt follows the [6 context engineering principles](CONTEXT_ENGINEERING.md):
 
 | Principle | How It's Applied |
 |-----------|-----------------|
