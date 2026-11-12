@@ -1,5 +1,9 @@
 # Awesome Agentic Coding: Best Practices & 1-Click Setup
 
+![Awesome Agentic Coding](assets/cover.png)
+
+**🧭 Explore:** [Setup](#1-click-setup) · [Architecture](#the-architecture) · [What’s inside](#whats-inside) · [Quick reference](#quick-reference) · [Sources](#sources--evidence)
+
 > **Turn Claude Code into a failsafe, token-efficient, one-shot coding machine.**
 > Production-tested patterns from Anthropic, Manus, Devin, and 100+ real-world projects.
 > Curated March 2026. Links and repository status re-checked on 31 July 2026.
