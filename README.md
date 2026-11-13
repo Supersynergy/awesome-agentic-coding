@@ -1,6 +1,9 @@
+<p align="center">
+  <img src="assets/cover.png" alt="Awesome Agentic Coding" width="960">
+</p>
+
 # Awesome Agentic Coding: Best Practices & 1-Click Setup
 
-<img src="assets/cover.png" alt="Awesome Agentic Coding" width="300" align="right">
 
 **🧭 Explore:** [Setup](#1-click-setup) · [Architecture](#the-architecture) · [What’s inside](#whats-inside) · [Quick reference](#quick-reference) · [Sources](#sources--evidence)
 
